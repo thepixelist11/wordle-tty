@@ -14,10 +14,12 @@
 ## :dart: Features
 
 - Runs in the terminal
-- Cross-platform - Support for both Linux and Windows
 - Has four wordlists to choose from (More are in the works!)
 
 ### :gear: Installation
+
+> [!WARNING]  
+> Wordle-TTY is not Cross-Platform. There is Currently Only Support for Linux.
 
 #### [Install from releases page](https://github.com/thepixelist11/wordle-tty/releases/)
 
