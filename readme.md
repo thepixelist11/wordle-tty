@@ -30,7 +30,7 @@
   cd ./wordle-tty
   make
 ```
-The outputted executable can be found in `./bin/wordle (.exe)`
+The outputted executable can be found in `./bin/wordle`
 
 ## :warning: License
 
