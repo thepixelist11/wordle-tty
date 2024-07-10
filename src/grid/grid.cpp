@@ -45,6 +45,17 @@ void Grid::createGrid() {
   for (size_t i = 0; i <= wordlength * maxGuesses; i++) {
     tiles.push_back(Tile());
   }
+
+  for (int i = 97; i <= 122; i++) {
+    charStates.push_back(CharState{
+        .c = char(i),       //
+        .state = TYPE_NONE  //
+    });                     //
+  }
+  charStates.push_back(CharState{
+      .c = ' ',           //
+      .state = TYPE_NONE  //
+  });                     //
 }
 
 Grid::Grid(uint8_t maxGuesses, std::vector<std::string> wordlist)
@@ -144,12 +155,17 @@ void Grid::updateTileTypes(int guess, std::string& enteredWord) {
       t->setType(TYPE_GREY);
       didWin = false;
     }
+    for (int j = 0; j < charStates.size(); j++) {
+      if (charStates[j].c == enteredWord[i] && charStates[j].state < t->type) {
+        charStates[j].state = t->type;
+      }
+    }
   }
 }
 
 std::ostream& operator<<(std::ostream& out, Grid& grid) {
   const int tileSize = 1;
-  std::string printStr;
+  std::string printStr = " ";
 
   for (uint8_t lineIndex = 0; lineIndex < tileSize * grid.maxGuesses; lineIndex++) {
     for (uint8_t charIndex = 0; charIndex < tileSize * grid.wordlength; charIndex++) {
@@ -180,7 +196,35 @@ std::ostream& operator<<(std::ostream& out, Grid& grid) {
         printStr += ' ';
       }
     }
-    printStr += '\n';
+    printStr += "\n ";
   }
-  return out << printStr;
+
+  std::string letterStates = "\n ";
+  for (int i = 97; i <= 123; i++) {
+    if ((i - 96) % 14 == 0)
+      letterStates += '\n';
+    letterStates += ' ';
+    const auto state = grid.charStates[i - 97].state;
+    switch (state) {
+      case TYPE_GREY:
+        letterStates += "\x1B[38;5;8m";
+        break;
+      case TYPE_NONE:
+        letterStates += "\033[0m";
+        break;
+      case TYPE_GREEN:
+        letterStates += "\033[1;32m";
+        break;
+      case TYPE_YELLOW:
+        letterStates += "\033[1;33m";
+        break;
+    }
+    if (i == 123) {
+      letterStates += "_\n";
+    } else {
+      letterStates += char(i);
+    }
+    letterStates += "\033[0m";
+  }
+  return out << printStr << letterStates;
 }

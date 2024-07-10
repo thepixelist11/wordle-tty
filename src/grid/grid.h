@@ -10,10 +10,16 @@
 
 std::string getRandomWord(const std::vector<std::string> wordlist);
 
+struct CharState {
+  char c;
+  tileType state;
+};
+
 class Grid {
  public:
   uint8_t maxGuesses = 6;
   uint8_t wordlength = 5;
+  std::vector<CharState> charStates;
   std::vector<Tile> tiles;
   bool didWin;
 

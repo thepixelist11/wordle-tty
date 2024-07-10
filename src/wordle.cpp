@@ -13,7 +13,7 @@ struct config {
 };
 
 static const config conf = {
-    .debug = true,
+    .debug = false,
     .compatibility = false,
 };
 

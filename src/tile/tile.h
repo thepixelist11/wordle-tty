@@ -4,9 +4,9 @@
 
 enum tileType {
   TYPE_NONE,
-  TYPE_GREY,
-  TYPE_GREEN,
   TYPE_YELLOW,
+  TYPE_GREEN,
+  TYPE_GREY,
 };
 
 class Tile {
