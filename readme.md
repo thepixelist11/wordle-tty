@@ -11,14 +11,14 @@
 </div>
 <br />
 
-## :dart: Features
+## Features
 
 - Runs in the terminal
-- Has four wordlists to choose from (More are in the works!)
+- Has three wordlists to choose from/
 
-### :gear: Installation
+### Installation
 
-> [!WARNING]  
+> [!WARNING]
 > Wordle-TTY is not Cross-Platform. There is Currently Only Support for Linux.
 
 #### [Install from releases page](https://github.com/thepixelist11/wordle-tty/releases/)
@@ -32,11 +32,11 @@
 ```
 The outputted executable can be found in `./bin/wordle`
 
-## :warning: License
+## License
 
 Distributed under the MIT License. See LICENSE.md for more information.
 
-## :gem: Acknowledgements
+## Acknowledgements
 
- - [Awesome README](https://github.com/matiassingers/awesome-readme)
  - [New York Times' Wordle](https://www.nytimes.com/games/wordle/index.html)
+

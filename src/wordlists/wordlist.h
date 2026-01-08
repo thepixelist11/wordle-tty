@@ -1,43 +1,34 @@
 #pragma once
 
-#include <limits.h>
 #include <fstream>
 #include <iostream>
+#include <limits.h>
 #include <string>
 #include <vector>
 
 enum wordlistID {
-  CLASSIC,
-  FULL,
-  ALPHA,
-  INSANE,
+    CLASSIC,
+    FULL,
+    INSANE,
 };
 
 static std::vector<std::string> wordlistFromFile(std::string path) {
-  char buf[PATH_MAX];
+    char buf[PATH_MAX];
 
-  std::string absPath = realpath(path.c_str(), buf);
-  std::ifstream file(absPath);
+    std::string   absPath = realpath(path.c_str(), buf);
+    std::ifstream file(absPath);
 
-  std::vector<std::string> ret;
-  std::string line;
-  if (file.is_open()) {
-    while (getline(file, line)) {
-      ret.push_back(line);
+    std::vector<std::string> ret;
+    std::string              line;
+    if (file.is_open()) {
+        while (getline(file, line)) {
+            ret.push_back(line);
+        }
+        file.close();
     }
-    file.close();
-  }
 
-  return ret;
+    return ret;
 }
-
-static const std::vector<std::string> wordlist_genAlphaSlang = std::vector<std::string>{
-    "alpha",  "backrooms", "bet",     "beta",  "bro",       "bruh",    "bussin",
-    "cap",    "cap",       "cook",    "fam",   "fanum tax", "fanum",   "flex",
-    "griddy", "gyatt",     "l rizz",  "l",     "low key",   "no cap",  "noob",
-    "ohio",   "rizz",      "rizzler", "sigma", "simp",      "skibidi", "slay",
-    "sus",    "uncanny",   "w rizz",  "w",     "yeet",
-};
 
 static const std::vector<std::string> wordlist_commonWords = std::vector<std::string>{
     "aback", "abase", "abate", "abbey", "abbot", "abhor", "abide", "abled", "abode",
