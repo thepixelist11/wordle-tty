@@ -44,7 +44,6 @@ int initWordlist(int argc, char* argv[], wordlistID& wordlist) {
         std::cout << "\nWORDLISTS\n" << std::endl;
         std::cout << "Classic:   Classic Wordle" << std::endl;
         std::cout << "Full:      Wordle Hard Mode" << std::endl;
-        std::cout << "Alpha:     Wordle: Skibidi Rizz Edition" << std::endl;
         std::cout << "Insane:    Wordle, but it has every word." << std::endl;
     } else {
         auto typeArg = std::string(argv[1]);
